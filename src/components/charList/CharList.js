@@ -44,8 +44,9 @@ class CharList extends React.Component {
             }
 
             return (
-                <li className="char__item"
-                    key={item.id}>
+                <li key={item.id}
+                    className="char__item"
+                    onClick={() => this.props.onCharSelected(item.id)}>
                     <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
                     <div className="char__name">{item.name}</div>
                 </li>
@@ -72,8 +73,7 @@ class CharList extends React.Component {
         return (
             <div className="char__list">
                 {errorMessage || spinner || content}
-                <button className="button button__main button__long"
-                        onClick={this.getMoreChars}>
+                <button className="button button__main button__long">
                     <div className="inner">load more</div>
                 </button>
             </div>
